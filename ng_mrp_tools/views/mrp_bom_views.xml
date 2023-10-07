@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!--
+     <record id="mrp_bom_form_view" model="ir.ui.view">
+        <field name="name">mrp.bom.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="ng_mrp_one_time_components.mrp_bom_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='is_onetime_component']"
+                position="after"
+            >
+                <field name="is_tool"/>
+            </xpath>
+        </field>
+    </record>
+-->
+
+    <record id="mrp_bom_form_view" model="ir.ui.view">
+        <field name="name">mrp.bom.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='components']//field[@name='product_qty']"
+                position="after"
+            >
+                <field name="is_tool"/>
+            </xpath>          
+            <xpath
+                expr="//page[@name='miscellaneous']//field[@name='picking_type_id']"
+                position="after"
+            >
+                <field name="location_prod_id" attrs="{'invisible': [('type','=','phantom')]}" string="Production Location" groups="stock.group_adv_location"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

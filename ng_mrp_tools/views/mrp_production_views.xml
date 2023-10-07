@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="name">mrp.production.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='miscellaneous']//field[@name='warehouse_id']"
+                position="before"
+            >
+                <field name="location_prod_id" groups="stock.group_stock_multi_locations" options="{'no_create': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="location_prod_id" groups="!stock.group_stock_multi_locations" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
