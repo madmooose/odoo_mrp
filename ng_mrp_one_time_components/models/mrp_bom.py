@@ -11,6 +11,12 @@ from collections import defaultdict
 
 from odoo.addons.mrp.models.mrp_bom import MrpBom
 
+class MrpBomLine(models.Model):
+    _inherit = 'mrp.bom.line'
+
+    is_onetime_component = fields.Boolean(string="Helper",
+        help="This components quantity is not multiplied with to production amount.")
+
 def explode(self, product, quantity, picking_type=False):
     """
         Explodes the BoM and creates two lists with all the information you need: bom_done and line_done
