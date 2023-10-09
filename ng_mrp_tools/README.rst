@@ -9,4 +9,4 @@ This way we can move Tools out of Stock during Production.
 TODO
 ====
 
-* Check whar mrp_unbuild is for and modify helper fuctions
+* Check what mrp_unbuild is for and modify helper fuctions
